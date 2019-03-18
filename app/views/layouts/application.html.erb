@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RenderLatex</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all'%>
+    <%= javascript_include_tag 'application'%>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+            messageStyle: "none",
+            ShowMathMenu: false,
+            showMathMenuMSIE: false,
+            tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                displayMath: [ ['$$','$$'], ['\[','\]'] ],
+                processEscapes: true
+              }
+        });
+        MathJax.Hub.Register.StartupHook("End",function () {
+            $(".hide-math").show();
+          });
+    </script>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
